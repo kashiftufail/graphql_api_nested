@@ -4,7 +4,8 @@ module Types
   class UserType < Types::BaseObject
     field :id, ID, null: false
     field :email, String
-    field :name, String    
+    field :name, String
+    field :books, [Types::BookType], null: true
     field :books_count, Integer
     field :email_and_name, String, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
