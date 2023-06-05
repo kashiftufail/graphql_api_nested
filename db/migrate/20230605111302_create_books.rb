@@ -3,6 +3,7 @@ class CreateBooks < ActiveRecord::Migration[7.0]
     create_table :books do |t|
       t.string :title
       t.text :description
+      t.integer :essays_count
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
