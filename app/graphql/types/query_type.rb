@@ -10,7 +10,7 @@ module Types
     field :users, [Types::UserType], null: true
     
     def users
-      User.all
+      User.includes(:books)
     end
 
     # /user/:id
