@@ -3,8 +3,8 @@
 module Types
   class UserType < Types::BaseObject
     field :id, ID, null: false
-    field :email, String
-    field :name, String
+    field :email, String, null: false
+    field :name, String, null: false
     field :books, [Types::BookType], null: true
     field :books_count, Integer
     field :email_and_name, String, null: true
