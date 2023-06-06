@@ -66,10 +66,12 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -128,6 +130,9 @@ GEM
       ttfunk (~> 1.7)
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -201,6 +206,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.13)
   bootsnap
   debug
   faker (~> 3.2)
@@ -209,6 +215,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   matrix (~> 0.4.2)
+  pry
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   receipts (~> 2.2)
