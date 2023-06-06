@@ -4,4 +4,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   has_many :books, dependent: :destroy
 
+  enum :role, { user: 0, admin: 1 }, suffix: true
+
 end
