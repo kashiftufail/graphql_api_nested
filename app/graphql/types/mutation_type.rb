@@ -1,5 +1,6 @@
 module Types
   class MutationType < Types::BaseObject
+    field :create_book, mutation: Mutations::CreateBook
     field :create_user, mutation: Mutations::CreateUser
     field :signin_user, mutation: Mutations::SignInUser
 

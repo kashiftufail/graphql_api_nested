@@ -11,10 +11,6 @@ module Mutations
     def resolve(credentials: nil)
       # basic validation
       return unless credentials
-      
-      # binding.pry
-      
-
       user = User.find_by email: credentials[:email]
 
       # ensures we have the correct user
