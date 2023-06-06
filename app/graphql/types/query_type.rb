@@ -18,8 +18,16 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :book, Types::BookType, null: false do
+      argument :id, ID, required: true
+    end
+
     def user(id:)
       User.find(id)
+    end    
+
+    def book(id:)
+      Book.find(id)
     end
 
   end
