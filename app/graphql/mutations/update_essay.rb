@@ -1,14 +1,24 @@
 module Mutations
   class UpdateEssay < BaseMutation
-    # TODO: define return fields
-    # field :post, Types::PostType, null: false
+    description "Updates Essay"
 
-    # TODO: define arguments
-    # argument :name, String, required: true
+    argument :heading, String, required: true
+    argument :detail, String, required: true
+    argument :id, ID, required: true
 
-    # TODO: define resolve method
-    # def resolve(name:)
-    #   { post: ... }
-    # end
+    field :essay, Types::EssayType, null: true
+    field :errors, [String], null: true
+
+    def resolve(heading:, detail:, id:)
+      essay = Essay.find(id)       
+      return if essay.book.user != context[:current_user]               
+      
+      essay.update(heading: heading, detail: detail)        
+      if (essay.errors.blank?)
+        { essay: essay, errors: nil }
+      else        
+        { essay: nil, errors: essay.errors.full_messages }
+      end
+    end
   end
 end
