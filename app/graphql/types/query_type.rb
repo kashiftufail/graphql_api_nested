@@ -6,11 +6,15 @@ module Types
 
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
-
+    field :books, [Types::BookType], null: true
     field :users, [Types::UserType], null: true
     
     def users
       User.includes(:books)
+    end
+
+    def books      
+      Book.includes(:essays, :user)
     end
 
     # /user/:id
