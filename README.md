@@ -3,7 +3,7 @@ This API is build using graphql and bcrypt for authentication.
 
 If you like it give me star.
 
-clonning repo and after rake db:cretae , migrate and seed.
+clonning repo and after rake db:create , migrate and seed.
 
 visit in action http://localhost:3000/graphiql
 
