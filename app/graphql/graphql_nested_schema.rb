@@ -2,6 +2,11 @@ class GraphqlNestedSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 
+  rescue_from(ActiveRecord::RecordNotFound) do |err, obj, args, ctx, field|
+    # Raise a graphql-friendly error with a custom message
+    raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} not found"
+  end
+  
   # For batch-loading (see https://graphql-ruby.org/dataloader/overview.html)
   use GraphQL::Dataloader
 
