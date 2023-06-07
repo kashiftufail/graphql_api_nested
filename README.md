@@ -1,24 +1,183 @@
-# README
+                            query{
+                              users{
+                                id
+                                name
+                                books{
+                                  title
+                                  description
+                                  essays{
+                                    heading
+                                    detail
+                                  }
+                                }
+                              }
+                            }
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+                            ########################
 
-* Ruby version
+                            query{
+                              user(id: 1){
+                                id
+                                email
+                                books{
+                                  title
+                                  description
+                                  essays{
+                                    heading
+                                    detail
+                                  }
+                                }
+                                
+                                
+                              }
 
-* System dependencies
+                            }
 
-* Configuration
+                            ######################################
+                            mutation {
+                              createUser(input: {
+                                name: "a"    
+                                authProvider: {
+                                  credentials: {
+                                    email: "email@example.com",
+                                    password: "123456"
+                                  }
+                                }
+                              }
+                              )
+                              {
+                                id
+                                name
+                                email
+                              }
+                            }
 
-* Database creation
+                          #######################################
 
-* Database initialization
+                            mutation {
+                              signinUser(input: {    
+                                
+                                  credentials: {
+                                    email: "e@example.com",
+                                    password: "123456"
+                                  }
+                                }
+                              
+                                  
+                              ) {
+                                message,
+                                token
+                                user {
+                                  id
+                                  name
+                                  email
+                                }
+                                
+                              }  
+                              
+                            }
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+                            ###################################
 
-* Deployment instructions
+                            mutation {
+                              createBook(input: {                                
+                                  
+                                    title: " gfhs dsfdsmple.com",
+                                    description: "1234 sfg khdf56"
+                                  }     
+                              )
+                              
+                              {
+                                title
+                                description
+                                userId {
+                                  id
+                                  name
+                                  email
+                                }
+                                
+                                  
+                                }
+                            }
+                              
+                            #########################################
 
-* ...
+                            query{
+                              book(id: 9){
+                                id
+                                title
+                                description
+                                userId {
+                                  id
+                                  name
+                                  email
+                                }
+                              }
+
+                            }  
+                              
+                            #############################################
+
+                              
+                            mutation {
+                              updateBook(input: {    
+                                
+                                    id: 8,
+                                    title: "ghro jjhhhh jhjfdjh",
+                                    description: "hhh hjhfdshfkj"
+                                  }     
+                              ) 
+                              {
+                                book {
+                                  id
+                                  title
+                                  description
+                                }
+                              }
+                              
+                              
+                              
+                              
+                            }
+                              
+                            ###############################################
+
+                            mutation {
+                              updateEssay(input: {        
+                                    id: 1,
+                                    heading: "ghro jjhhhh jhjfdjh",
+                                    detail: "hhh hjhfdshfkj"
+                                  }     
+                              ) 
+                              
+                              {
+                                essay
+                                {
+                                  id
+                                  bookId
+                                  heading
+                                  detail
+                                }
+                              }  
+                            }
+                                
+                            #################################################
+
+
+                            mutation{
+                              destroyUser(input: {
+                                id: 7
+                              }) {
+                                id
+                              }   
+                            }
+                              
+
+
+
+
+
+
+
