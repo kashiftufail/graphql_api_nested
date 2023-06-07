@@ -1,3 +1,6 @@
+This API is build using graphql and bcrypt for authentication.
+If you like it give me star.
+
 Fetch all users       
 
 
