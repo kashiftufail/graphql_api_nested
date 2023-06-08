@@ -66,7 +66,7 @@ end
 
 
 gem "receipts", "~> 2.2"
-
+gem 'search_object_graphql'
 gem "matrix", "~> 0.4.2"
 
 gem "faker", "~> 3.2"
