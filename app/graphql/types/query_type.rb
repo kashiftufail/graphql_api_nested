@@ -8,6 +8,8 @@ module Types
     # They will be entry points for queries on your schema.
     field :books, [Types::BookType], null: true
     field :users, [Types::UserType], null: true
+    field :all_books, resolver: Resolvers::BooksSearch
+
     
     def users
       User.includes(:books)
